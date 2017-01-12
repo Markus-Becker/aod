@@ -97,7 +97,7 @@ class AbstractBasicTranslationOptions(TranslationOptions):
         abstract = True
 
 class TopicTranslationOptions(AbstractBasicTranslationOptions):
-    fields = ('title', 'description')
+    pass
 translator.register(Topic, TopicTranslationOptions)
 
 class ArticleTranslationOptions(TranslationOptions):

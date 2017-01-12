@@ -1,4 +1,4 @@
-{% load analytical %}
+﻿{% load analytical %}
 <!DOCTYPE html>
 
 <html lang="{{LANGUAGE_CODE}}">
@@ -24,15 +24,18 @@
         <link rel="stylesheet" type="text/css" href="{% static 'app/content/footer.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'app/content/multiselect-bootstrap/bootstrap-select.min.css' %}" />
         <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+        {% if components.ui_options_banner == False %}
+        <link rel="stylesheet" type="text/css" href="{% static 'app/content/preloader.css' %}" />
+        {% endif %}
+
         <!--ui options-->
-        {% if components.ui_options_banner == True %}
-            <link rel="stylesheet" type="text/css" href="{% static 'app/content/ui_options/lib/normalize/css/normalize.css' %}" />
-            <link rel="stylesheet" type="text/css" href="{% static 'app/content/ui_options/framework/core/css/fluid.css' %}" />
-            <link rel="stylesheet" type="text/css" href="{% static 'app/content/ui_options/framework/preferences/css/Enactors.css' %}" />
-            <link rel="stylesheet" type="text/css" href="{% static 'app/content/ui_options/framework/preferences/css/PrefsEditor.css' %}" />
-            <link rel="stylesheet" type="text/css" href="{% static 'app/content/ui_options/framework/preferences/css/SeparatedPanelPrefsEditor.css' %}" />
-        {% else %}
-            <link rel="stylesheet" type="text/css" href="{% static 'app/content/preloader.css' %}" />
+        {% if components.ui_options_banner %}
+        <link rel="stylesheet" type="text/css" href="{% static 'app/content/ui_options/lib/normalize/css/normalize.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'app/content/ui_options/framework/core/css/fluid.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'app/content/ui_options/framework/preferences/css/Enactors.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'app/content/ui_options/framework/preferences/css/PrefsEditor.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'app/content/ui_options/framework/preferences/css/SeparatedPanelPrefsEditor.css' %}" />
         {% endif %}
         <!--cookies agreement-->
         <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.2/cookieconsent.min.css" />
@@ -58,7 +61,7 @@
          
         {% block UIoptions %}
         {% if components.ui_options_banner %}
-        <!--div class="" style="background-color: whitesmoke">-->
+        <div class="">
             <div class="flc-prefsEditor-separatedPanel fl-prefsEditor-separatedPanel margin-top-38">
                 <!-- This is the div that will contain the Preference Editor component -->
                 <div class="flc-slidingPanel-panel flc-prefsEditor-iframe"></div>
@@ -70,7 +73,7 @@
                     </span>
                 </div>
             </div>
-        <!--div-->
+        </div>
         {% endif %}
         {% endblock %}
 
@@ -85,7 +88,7 @@
 
         <!-- content -->
         {% if components.ui_options_banner %}
-            <div class="cleafix success-bg-color" >
+            <div class="container">
                 <div class="flc-toc-tocContainer"> </div>
             </div>
         {% endif %}
@@ -286,18 +289,6 @@
                     }
                 });
                 {% endif %}
-
-                /*
-                $("#show-hide").click(function(){
-                    console.log($(this).attr('aria-pressed'));
-                    if ( $(this).attr('aria-pressed') === false) {
-                        $("iframe").css("height", "300px");
-                    }
-                    else {
-                        $("iframe").css("height", "200px");
-                    }
-                });
-                */
 
                 $(".nav.navbar-nav li.dropdown").mouseover(function () {
                     $(this).addClass('open');

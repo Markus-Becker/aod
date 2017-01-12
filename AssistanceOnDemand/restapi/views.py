@@ -770,7 +770,7 @@ class ServiceLanguagesList(generics.RetrieveAPIView):
               - application/yaml
     """
 
-    serializer_class = ServiceLanguagesListSerializer
+    serializer_class = ServiceLanguagesSerializer
     queryset = Services.objects.all()
     lookup_field = ('pk')
 
@@ -896,7 +896,7 @@ class ServiceKeywordsList(generics.RetrieveAPIView):
               - application/yaml
     """
 
-    serializer_class = ServiceKeywordsListSerializer#ServiceKeywordsSerializer
+    serializer_class = ServiceKeywordsSerializer
     queryset = Services.objects.all()
     lookup_field = ('pk')
 
